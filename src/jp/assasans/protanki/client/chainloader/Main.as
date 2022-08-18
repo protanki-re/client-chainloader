@@ -50,12 +50,12 @@ package jp.assasans.protanki.client.chainloader {
       this.loader = new Loader();
       this.loader.contentLoaderInfo.addEventListener(Event.COMPLETE, this.onComplete);
 
-      const serverEndpoint: Vector.<String> = loaderInfo.parameters['server'].split(':');
+      const serverEndpoint: Vector.<String> = Vector.<String>(loaderInfo.parameters['server'].split(':'));
 
       const parameters: Object = {
         lang: loaderInfo.parameters['locale'],
         ip: serverEndpoint[0],
-        port: Number(serverEndpoint[1]),
+        port: serverEndpoint[1],
         resources: loaderInfo.parameters['resources']
       };
 
