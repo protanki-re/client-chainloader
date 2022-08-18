@@ -9,7 +9,7 @@ if(!(Get-Command "java" -ErrorAction SilentlyContinue)) {
   return
 }
 
-$ResolvedOutputFile = Resolve-Path $OutputFile
+$ResolvedOutputFile = Join-Path (Resolve-Path .) $OutputFile
 
 Write-Host "[Build] Building client chainloader..." -ForegroundColor Yellow
 Write-Host "[Build] Build options:" -ForegroundColor Green
